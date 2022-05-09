@@ -2,24 +2,29 @@
 // Created on: May 2022
 // This file contains the JS functions for index.html
 
-"use strict";
+'use strict'
 
+/**
+ * Calculates the product of two numbers the user provides.
+ */
 function myButtonClicked() {
-  const side1 = document.getElementById("side1").value
-  const side2 = document.getElementById("side2").value 
-  const side3 = document.getElementById("side3").value
+  const integerOne = parseInt(document.getElementById("integer1").value)
+  const integerTwo = parseInt(document.getElementById("integer2").value)
+  var result = 0
 
-  
-  if ((side1 == side2 && side2 == side3)) {
-    document.getElementById("answers").innerHTML = "The triangle is an equilateral triangle. "
+  if (integerOne != 0 && integerTwo >= 0) {
+    while (integerTwo > 0) {
+      // Calculation for + or - times + numbers
+      result = result + integerOne
+      integerTwo = integerTwo - 1
+    }
   }
-  else if ((side1 == side2 || side2 == side3 || side1 == side3)) {
-    document.getElementById("answers").innerHTML = "The triangle is an isosceles triangle. "
+  else if (integerTwo < 0) {
+    while (integerTwo != 0) {
+      // Calculation for + or - times - numbers
+      result = result - integerOne
+      integerTwo = integerTwo + 1
+    }
   }
-  else if ((side1 == 0 || side2 == 0 || side1 == 0)) {
-    document.getElementById("answers").innerHTML = "This is not a triangle. "
-  }
-  else {
-    document.getElementById("answers").innerHTML = "The triangle is a scalene triangle."
-  }
+  document.getElementById("answers").innerHTML = "The product of these numbers is " + result
 }
